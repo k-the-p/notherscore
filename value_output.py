@@ -1,5 +1,3 @@
-#import os
-#from contextlib import redirect_stdout
 import sys
 import cshogi
 import cshogi.KIF
@@ -39,7 +37,6 @@ def listoutput():
         # #ここから下はなんとかしたかったけど不明
         sys.stdout = open('out.txt', 'a')
         engine.go(listener=print)
-        # k.append(output)
         sys.stdout = sys.__stdout__ # 元に戻す
     return kif['moves']
 
@@ -48,10 +45,8 @@ def sente():
     with open(path, encoding="UTF-8", mode="r") as f:
         kif = cshogi.KIF.Parser.parse_str(f.read())[0] 
     return("先手 " + str(kif['names'][cshogi.BLACK]).replace("None", ""))
-    #return kif['moves']
 def gote():
     path = 'kifu.kif'
     with open(path, encoding="UTF-8", mode="r") as f:
         kif = cshogi.KIF.Parser.parse_str(f.read())[0] 
-
     return("後手 " + str(kif['names'][cshogi.WHITE]).replace("None", ""))

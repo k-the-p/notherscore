@@ -1,6 +1,5 @@
 import base64
 import io
-from io import BytesIO
 import matplotlib #これと
 matplotlib.use("Agg") #これは警告よけのおまじない
 import matplotlib.pyplot as plt
