@@ -9,15 +9,6 @@ import math
 import value_output
 
 def imageoutput():
-    # #読み込み先の設定、初期化
-    # f = io.StringIO()
-    # with redirect_stdout(f):
-    # #    sys.stdout = open(os.devnull, 'w')
-    #     value_output.list()
-    # #    sys.stdout = sys.__stdout__ # 
-
-    # inpt=f.getvalue()
-    
     #生データの読み込み
     with open('out.txt', mode="r") as f:
         inpt = f.read()
@@ -35,13 +26,6 @@ def imageoutput():
             pass
         else:
             scorelist[num - 1].append(i)
-
-    # for line in input_lines:
-    #     if line == "go\n":
-    #         num = num + 1
-    #         scorelist.append([num])
-    #     else:
-    #         scorelist[num - 1].append(line.replace("\n" , ""))
 
     #リストを使いやすく
     pvlist = []
@@ -130,5 +114,3 @@ def imageoutput():
     plt.close()
     s= base64.b64encode(s.getvalue()).decode("utf-8").replace("\n", "")
     return (s)
-
-

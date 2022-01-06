@@ -28,7 +28,6 @@ def listoutput():
     with open("out.txt", 'w') as f:
         f.truncate(0)
 
-
     #棋譜に従って手を進める
     j = []
     for i in kiflist:
