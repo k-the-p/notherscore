@@ -103,7 +103,7 @@ def imageoutput():
 
     #流石に0手目からグラフが始まるのは許せなかったために小賢しい努力
     plt.xticks([0, math.floor(len(na_point)/2), len(na_point)],
-    [1,math.ceil(len(na_point)/2 + 0.5), len(na_point) + 1])
+    [1,math.ceil(len(na_point)/2 + 0.5), len(na_point)])
 
     #出力
     #plt.savefig("sin.png")
