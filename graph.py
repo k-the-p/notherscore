@@ -4,7 +4,6 @@ import matplotlib #これと
 matplotlib.use("Agg") #これは警告よけのおまじない
 import matplotlib.pyplot as plt
 import numpy as np
-#import pandas as pd #おまじないとして置いてたけど要らなさそうなので
 import math
 import value_output
 
