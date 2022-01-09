@@ -95,7 +95,6 @@ def imageoutput():
     ax.plot(sen_val , lw = 1)
     ax.plot(go_val , lw = 1)
 
-    
     #対局者名を取得
     s = value_output.sente()
     g = value_output.gote()
