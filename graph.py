@@ -89,25 +89,30 @@ def imageoutput():
     #%config InlineBackend.figure_formats = {'png', 'retina'}
 
     #あとはmatplotlibにお任せ
-    plt.figure(dpi=150)
-    plt.plot(na_point, lw = 0.7 , ls = "dotted" , color="black")
-    plt.plot(sen_val , lw = 1)
-    plt.plot(go_val , lw = 1)
+    fig = plt.figure(dpi=150)
+    ax = fig.subplots()
+    ax.plot(na_point, lw = 0.7 , ls = "dotted" , color="black")
+    ax.plot(sen_val , lw = 1)
+    ax.plot(go_val , lw = 1)
 
+    
     #対局者名を取得
     s = value_output.sente()
     g = value_output.gote()
-    plt.text(2, 750, s ,fontname="MS Gothic", color="tab:blue")
-    plt.text(2, -750, g , fontname="MS Gothic", color="tab:orange")
-    plt.text(-2, 0, "評価値" , fontname="MS Gothic", color="black")
+
+    ax.text(0.01, 0.99, s ,fontname="MS Gothic", color="tab:blue" ,transform=ax.transAxes, verticalalignment='top')
+    ax.text(0.01, 0.01, g , fontname="MS Gothic", color="tab:orange" ,transform=ax.transAxes)
+    ax.text(0.99, 0.01, "notherScoreでグラフ作成" , fontname="MS Gothic", color="black" ,transform=ax.transAxes, horizontalalignment="right")
+
+    ax.text(-2, 0, "評価値" , fontname="MS Gothic", color="black")
 
     #流石に0手目からグラフが始まるのは許せなかったために小賢しい努力
     plt.xticks([0, math.floor(len(na_point)/2), len(na_point)],
     [1,math.ceil(len(na_point)/2 + 0.5), len(na_point)])
 
     #出力
-    #plt.savefig("sin.png")
-    #plt.show()
+    #ax.savefig("sin.png")
+    #ax.show()
     s= io.BytesIO()
     plt.savefig(s, format='png', bbox_inches="tight")
     plt.close()
