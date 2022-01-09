@@ -102,7 +102,6 @@ def imageoutput():
     ax.text(0.01, 0.99, s ,fontname="MS Gothic", color="tab:blue" ,transform=ax.transAxes, verticalalignment='top')
     ax.text(0.01, 0.01, g , fontname="MS Gothic", color="tab:orange" ,transform=ax.transAxes)
     ax.text(0.99, 0.01, "notherScoreでグラフ作成" , fontname="MS Gothic", color="black" ,transform=ax.transAxes, horizontalalignment="right")
-
     ax.text(-2, 0, "評価値" , fontname="MS Gothic", color="black")
 
     #流石に0手目からグラフが始まるのは許せなかったために小賢しい努力
