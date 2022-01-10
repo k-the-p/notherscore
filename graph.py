@@ -6,6 +6,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 import value_output
+import configparser
+
+config = configparser.ConfigParser()
+config.read("config.ini", encoding="utf-8")
 
 def imageoutput():
     #生データの読み込み
@@ -101,7 +105,7 @@ def imageoutput():
 
     ax.text(0.01, 0.99, s ,fontname="MS Gothic", color="tab:blue" ,transform=ax.transAxes, verticalalignment='top')
     ax.text(0.01, 0.01, g , fontname="MS Gothic", color="tab:orange" ,transform=ax.transAxes)
-    ax.text(0.99, 0.01, "notherScoreでグラフ作成" , fontname="MS Gothic", color="black" ,transform=ax.transAxes, horizontalalignment="right")
+    ax.text(0.99, 0.01, config.get("DEFAULT", "Enginename") +   "　一手" + str(config.get("DEFAULT", "Nodeslimit")) + "ノード\n" + "notherScoreでグラフ作成" , fontname="MS Gothic", color="black" ,transform=ax.transAxes, horizontalalignment="right")
     ax.text(-2, 0, "評価値" , fontname="MS Gothic", color="black")
 
     #流石に0手目からグラフが始まるのは許せなかったために小賢しい努力
